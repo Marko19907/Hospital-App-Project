@@ -13,6 +13,12 @@ public abstract class Person
 
     public Person(String firstName, String lastName, String socialSecurityNumber)
     {
+        if (firstName == null || lastName == null || socialSecurityNumber == null) {
+            throw new IllegalArgumentException("firstName, lastName or socialSecurityNumber can not be null");
+        }
+        if (firstName.isBlank() || lastName.isBlank() || socialSecurityNumber.isBlank()) {
+            throw new IllegalArgumentException("firstName, lastName or socialSecurityNumber can not be blank");
+        }
         this.firstName = firstName;
         this.lastName = lastName;
         this.socialSecurityNumber = socialSecurityNumber;

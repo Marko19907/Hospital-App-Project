@@ -1,5 +1,9 @@
 package mappe.del1.hospital;
 
+/**
+ * Class Patient represents a single patient in the hospital
+ * It is responsible for storing the patient's diagnosis and personal details
+ */
 public class Patient extends Person implements Diagnosable
 {
     private String diagnosis;
