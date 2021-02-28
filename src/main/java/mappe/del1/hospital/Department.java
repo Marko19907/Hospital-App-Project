@@ -1,5 +1,7 @@
 package mappe.del1.hospital;
 
+import mappe.del1.hospital.exception.RemoveException;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -57,6 +59,22 @@ public class Department {
             if (!this.personnel.containsKey(employee.getSocialSecurityNumber())) {
                 this.personnel.put(employee.getSocialSecurityNumber(), employee);
             }
+        }
+    }
+
+    /**
+     * Removes a given person from the department
+     * @param person The person to remove, can not be null
+     * @throws RemoveException If the person is not already present in the department
+     */
+    public void remove(Person person) throws RemoveException
+    {
+        if (person != null) {
+            if (!this.personnel.containsKey(person.getSocialSecurityNumber())) {
+                throw new RemoveException("The given person to remove was not found in the register");
+            }
+
+            this.personnel.remove(person.getSocialSecurityNumber());
         }
     }
 

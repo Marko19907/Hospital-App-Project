@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * Class Hospital represents a hospital
+ * It is responsible for storing a list of it's departments
+ */
 public class Hospital {
     private final String hospitalName;
     private final HashMap<String, Department> departmentList;
