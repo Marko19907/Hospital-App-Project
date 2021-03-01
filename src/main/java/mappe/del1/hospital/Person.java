@@ -96,6 +96,12 @@ public abstract class Person
      */
     public String getFullName()
     {
-        return this.firstName + " " + this.lastName;
+        return this.getFirstName() + " " + this.getLastName();
+    }
+
+    @Override
+    public String toString()
+    {
+        return this.getFullName() + ", with ID: " + this.getSocialSecurityNumber();
     }
 }

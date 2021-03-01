@@ -22,10 +22,18 @@
 # PDF Files #
 *.pdf
 
+# UML Files
+*.uml
+
 # Intellij
 .idea/
 *.iml
 *.iws
+
+# Eclipse
+.settings/
+.classpath
+.project
 
 # Maven
 log/

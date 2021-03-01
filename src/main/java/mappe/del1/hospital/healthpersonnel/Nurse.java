@@ -1,4 +1,4 @@
-package mappe.del1.hospital.healthpersonal;
+package mappe.del1.hospital.healthpersonnel;
 
 import mappe.del1.hospital.Employee;
 
@@ -11,5 +11,11 @@ public class Nurse extends Employee
     public Nurse(String firstName, String lastName, String socialSecurityNumber)
     {
         super(firstName, lastName, socialSecurityNumber);
+    }
+
+    @Override
+    public String toString()
+    {
+        return "Nurse: " + super.getFullName() + ", with ID: " + super.getSocialSecurityNumber();
     }
 }

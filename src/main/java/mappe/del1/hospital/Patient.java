@@ -32,4 +32,12 @@ public class Patient extends Person implements Diagnosable
             }
         }
     }
+
+    @Override
+    public String toString()
+    {
+        return "Patient: " + super.toString() + ", with ID: "
+                + super.getSocialSecurityNumber() + ", with diagnosis "
+                + this.getDiagnosis();
+    }
 }

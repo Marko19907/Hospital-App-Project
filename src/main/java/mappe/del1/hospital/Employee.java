@@ -9,4 +9,10 @@ public class Employee extends Person
     {
         super(firstName, lastName, socialSecurityNumber);
     }
+
+    @Override
+    public String toString()
+    {
+        return "Employee: " + super.getFullName() + ", with ID: " + super.getSocialSecurityNumber();
+    }
 }

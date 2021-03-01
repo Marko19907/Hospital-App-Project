@@ -1,8 +1,8 @@
 package mappe.del1.hospital;
 
-import mappe.del1.hospital.healthpersonal.Nurse;
-import mappe.del1.hospital.healthpersonal.doctor.GeneralPractitioner;
-import mappe.del1.hospital.healthpersonal.doctor.Surgeon;
+import mappe.del1.hospital.healthpersonnel.Nurse;
+import mappe.del1.hospital.healthpersonnel.doctor.GeneralPractitioner;
+import mappe.del1.hospital.healthpersonnel.doctor.Surgeon;
 
 public class HospitalTestData {
 

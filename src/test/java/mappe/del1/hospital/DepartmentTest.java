@@ -1,7 +1,7 @@
 package mappe.del1.hospital;
 
 import mappe.del1.hospital.exception.RemoveException;
-import mappe.del1.hospital.healthpersonal.doctor.Surgeon;
+import mappe.del1.hospital.healthpersonnel.doctor.Surgeon;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

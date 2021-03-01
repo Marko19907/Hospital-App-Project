@@ -148,7 +148,7 @@ public class Department {
 
     @Override
     public String toString() {
-        return "Department name: " + this.departmentName + "\n" +
-                "Personnel: " + this.personnel + "\n";
+        return "Department name: " + this.getDepartmentName() + " with "
+                + this.personnel.size() + " person(people)";
     }
 }

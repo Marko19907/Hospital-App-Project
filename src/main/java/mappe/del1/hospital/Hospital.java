@@ -58,7 +58,7 @@ public class Hospital {
 
     @Override
     public String toString() {
-        return "Hospital name: " + this.hospitalName + "\n" +
-                "Department list: " + this.departmentList + "\n";
+        return "Hospital : " + this.getHospitalName() + " with "
+                + this.departmentList.size() + " department(s)";
     }
 }
