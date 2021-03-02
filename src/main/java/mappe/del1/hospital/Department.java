@@ -11,12 +11,14 @@ import java.util.Objects;
  * Class Department represents a single department in the hospital
  * It is responsible for storing a list of the employees and patients in the department
  */
-public class Department {
+public class Department
+{
     private String departmentName;
 
     private final HashMap<String, Person> personnel;
 
-    public Department(String departmentName) {
+    public Department(String departmentName)
+    {
         if (departmentName == null) {
             throw new IllegalArgumentException("departmentName can not be null");
         }
@@ -32,7 +34,8 @@ public class Department {
      * Sets the department name
      * @param newDepartmentName The new name to set, can not be null or blank
      */
-    public void setDepartmentName(String newDepartmentName) {
+    public void setDepartmentName(String newDepartmentName)
+    {
         if (newDepartmentName != null) {
             if (!newDepartmentName.isBlank()) {
                 this.departmentName = newDepartmentName;
@@ -44,7 +47,8 @@ public class Department {
      * Returns the departmentName
      * @return Returns the departmentName as a String
      */
-    public String getDepartmentName() {
+    public String getDepartmentName()
+    {
         return this.departmentName;
     }
 
@@ -54,7 +58,8 @@ public class Department {
      *                 and can not have the same social security
      *                 number as an already existing employee
      */
-    public void addEmployee(Employee employee) {
+    public void addEmployee(Employee employee)
+    {
         if (employee != null) {
             if (!this.personnel.containsKey(employee.getSocialSecurityNumber())) {
                 this.personnel.put(employee.getSocialSecurityNumber(), employee);
@@ -82,15 +87,14 @@ public class Department {
      * Returns a List of employees in the department
      * @return A List of employees in the department
      */
-    public List<Employee> getEmployees() {
+    public List<Employee> getEmployees()
+    {
         List<Employee> toReturn = new ArrayList<>();
 
         if (!this.personnel.isEmpty()) {
-            for (Person person : this.personnel.values()) {
-                if (person instanceof Employee) {
-                    toReturn.add((Employee) person);
-                }
-            }
+            this.personnel.values().stream()
+                    .filter(person -> person instanceof Employee)
+                    .forEach(person -> toReturn.add((Employee) person));
         }
 
         return toReturn;
@@ -102,7 +106,8 @@ public class Department {
      *                and can not have the same social security
      *                number as an already existing patient
      */
-    public void addPatient(Patient patient) {
+    public void addPatient(Patient patient)
+    {
         if (patient != null) {
             if (!this.personnel.containsKey(patient.getSocialSecurityNumber())) {
                 this.personnel.put(patient.getSocialSecurityNumber(), patient);
@@ -114,22 +119,22 @@ public class Department {
      * Returns a List of patients in the department
      * @return A List of patients in the department
      */
-    public List<Patient> getPatients() {
+    public List<Patient> getPatients()
+    {
         List<Patient> toReturn = new ArrayList<>();
 
         if (!this.personnel.isEmpty()) {
-            for (Person person : this.personnel.values()) {
-                if (person instanceof Patient) {
-                    toReturn.add((Patient) person);
-                }
-            }
+            this.personnel.values().stream()
+                    .filter(patient -> patient instanceof Patient)
+                    .forEach(patient -> toReturn.add((Patient) patient));
         }
 
         return toReturn;
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(Object o)
+    {
         if (this == o) {
             return true;
         }
@@ -142,12 +147,14 @@ public class Department {
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode()
+    {
         return Objects.hash(this.departmentName, this.personnel);
     }
 
     @Override
-    public String toString() {
+    public String toString()
+    {
         return "Department name: " + this.getDepartmentName() + " with "
                 + this.personnel.size() + " person(people)";
     }
