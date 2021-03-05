@@ -2,10 +2,10 @@ package mappe.del1.hospital;
 
 import mappe.del1.hospital.exception.RemoveException;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 /**
  * Class Department represents a single department in the hospital
@@ -89,15 +89,10 @@ public class Department
      */
     public List<Employee> getEmployees()
     {
-        List<Employee> toReturn = new ArrayList<>();
-
-        if (!this.personnel.isEmpty()) {
-            this.personnel.values().stream()
-                    .filter(person -> person instanceof Employee)
-                    .forEach(person -> toReturn.add((Employee) person));
-        }
-
-        return toReturn;
+        return this.personnel.values().stream()
+                .filter(person -> person instanceof Employee)
+                .map(person -> (Employee) person)
+                .collect(Collectors.toList());
     }
 
     /**
@@ -121,15 +116,10 @@ public class Department
      */
     public List<Patient> getPatients()
     {
-        List<Patient> toReturn = new ArrayList<>();
-
-        if (!this.personnel.isEmpty()) {
-            this.personnel.values().stream()
-                    .filter(patient -> patient instanceof Patient)
-                    .forEach(patient -> toReturn.add((Patient) patient));
-        }
-
-        return toReturn;
+        return this.personnel.values().stream()
+                .filter(person -> person instanceof Patient)
+                .map(person -> (Patient) person)
+                .collect(Collectors.toList());
     }
 
     @Override
